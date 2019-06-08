@@ -18,8 +18,10 @@ clique = (evento) => {
   const altura = this.state.altura;
   const resultado = peso/(altura*altura);
   this.setState ({resultado: resultado})
-  const mensagem = this.state.peso == 0 || this.state.altura == 0 ? 'Preencha uma valor maior que 0' : ''
+  const mensagem = peso == 0 || altura == 0 ? 'Preencha um valor maior que 0' : ''
   this.setState ({ mensagem: mensagem })
+  const alerta = resultado < 18.5 ? 'Abaixo do peso' : ''
+  this.setState ({ alerta: alerta })
 }
 digitou = (evento) => {
   this.setState({ [evento.target.name]: evento.target.value});
@@ -52,8 +54,9 @@ digitou = (evento) => {
           <p>Calcular IMC</p>
         </button>
       </div>    
-      <p>Resultado: {this.state.resultado} </p>  
+      <p>Resultado: {this.state.resultado.toFixed(2)} </p>  
       <p> {this.state.mensagem} </p>
+      <p> {this.state.alerta} </p>
     </div>  
     );
   }
