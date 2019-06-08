@@ -1,0 +1,10 @@
+h1, p {
+  font-family: Lato;
+}
+.button-calcular {
+  border: none;
+  background-color: #F26457;
+  position: relative;
+  border-radius: 10px 10px 10px 10px;
+  cursor: pointer;
+}
